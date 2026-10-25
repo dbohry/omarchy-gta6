@@ -18,6 +18,12 @@ of Rockstar Games / Take-Two Interactive and are not covered by the license belo
 ## Installation
 
 ```bash
+omarchy theme install https://github.com/dbohry/omarchy-gta6.git
+```
+
+Or, from within an existing checkout:
+
+```bash
 omarchy theme set gta-vi
 ```
 
