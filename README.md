@@ -45,13 +45,31 @@ omarchy restart shell
 See its [README](https://github.com/dbohry/omarchy-gta6-lock#readme) for the
 Pricedown font it uses and how to switch back to the stock lock screen.
 
+## Bar
+
+Float the top bar with [GTA 6 Bar](https://github.com/dbohry/omarchy-gta6-bar),
+a bar plugin that comes alive while this theme is active: the left, center and
+right sections each float in their own rounded island with a soft sunset
+gradient border, lined up with the windows below.
+
+![GTA 6 Bar: floating islands](https://raw.githubusercontent.com/dbohry/omarchy-gta6-bar/main/screenshots/bar.png)
+
+```bash
+omarchy plugin add https://github.com/dbohry/omarchy-gta6-bar.git
+omarchy bar use gta6-bar
+omarchy restart shell
+```
+
+See its [README](https://github.com/dbohry/omarchy-gta6-bar#readme) for tuning
+the islands and how to switch back to the stock bar.
+
 ## Workspaces
 
 Pair it with [GTA 6 Workspaces](https://github.com/dbohry/omarchy-gta6-workspaces)
 too, a bar widget that comes alive while this theme is active: the focused
-workspace sits in a Vice pink pill that slides between workspaces, the rest are
-colored sunset orange and dusk purple, and a sunset gradient line runs along
-the bar.
+workspace sits in a Vice pink pill that slides between workspaces, and the rest
+are colored sunset orange and dusk purple. On the stock bar it also runs a
+sunset gradient line along the bar's edge.
 
 ![GTA 6 Workspaces: the pill sliding between workspaces](https://raw.githubusercontent.com/dbohry/omarchy-gta6-workspaces/main/screenshots/slide.png)
 
