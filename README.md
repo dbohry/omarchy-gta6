@@ -29,7 +29,7 @@ omarchy theme set gta-vi
 
 ## Full setup
 
-To get everything in the preview, install the theme and its four companion
+To get everything in the preview, install the theme and its five companion
 plugins, then restart the shell once at the end. Each plugin only comes alive
 while this theme is active, so switching to another theme gives you the stock
 look back without uninstalling anything.
@@ -72,11 +72,25 @@ look back without uninstalling anything.
    omarchy plugin disable omarchy.lock
    ```
 
-6. Optional: install the Pricedown font for the lock screen's mission cards
-   (see the [GTA 6 Lock README](https://github.com/dbohry/omarchy-gta6-lock#font)).
-   Without it, the cards use the default font.
+6. Turn the background switcher into the [weapon wheel](#weapon-wheel):
 
-7. Optional: round the window corners to 8px to match the bar islands. Omarchy
+   ```bash
+   omarchy plugin add https://github.com/dbohry/omarchy-gta6-weapon-wheel.git --enable
+   ```
+
+   Then rebind `SUPER + CTRL + SPACE` in `~/.config/hypr/bindings.lua`:
+
+   ```lua
+   hl.unbind("SUPER + CTRL + SPACE")
+   o.bind("SUPER + CTRL + SPACE", "Background switcher", "omarchy-shell shell toggle gta6-weapon-wheel")
+   ```
+
+7. Optional: install the Pricedown font for the lock screen's mission cards and
+   the weapon wheel's titles (see the
+   [GTA 6 Lock README](https://github.com/dbohry/omarchy-gta6-lock#font)).
+   Without it, the text uses the default font.
+
+8. Optional: round the window corners to 8px to match the bar islands. Omarchy
    doesn't load Hyprland settings from a theme installed from git, so the theme
    ships a hook that applies them instead, only while this theme is active:
 
@@ -93,7 +107,7 @@ look back without uninstalling anything.
    })
    ```
 
-8. Restart the shell so everything loads cleanly:
+9. Restart the shell so everything loads cleanly:
 
    ```bash
    omarchy restart shell
@@ -179,6 +193,24 @@ omarchy restart shell
 
 See its [README](https://github.com/dbohry/omarchy-gta6-indicators#readme) for
 how to switch back to the stock indicators.
+
+## Weapon wheel
+
+Swap the background switcher for [GTA 6 Weapon Wheel](https://github.com/dbohry/omarchy-gta6-weapon-wheel),
+an overlay that comes alive while this theme is active: the wallpapers sit on a
+ring of wedges like the game's weapon wheel, the highlighted one is shown large
+in the middle with its name in Pricedown, and `Enter` equips it. On any other
+theme the same key opens the stock switcher.
+
+![GTA 6 Weapon Wheel: wallpapers on a ring](https://raw.githubusercontent.com/dbohry/omarchy-gta6-weapon-wheel/main/screenshots/wheel.png)
+
+```bash
+omarchy plugin add https://github.com/dbohry/omarchy-gta6-weapon-wheel.git --enable
+omarchy restart shell
+```
+
+Then point `SUPER + CTRL + SPACE` at it, as shown in the
+[README](https://github.com/dbohry/omarchy-gta6-weapon-wheel#install).
 
 ## License
 
