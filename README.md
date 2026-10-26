@@ -45,6 +45,26 @@ omarchy restart shell
 See its [README](https://github.com/dbohry/omarchy-gta6-lock#readme) for the
 Pricedown font it uses and how to switch back to the stock lock screen.
 
+## Workspaces
+
+Pair it with [GTA 6 Workspaces](https://github.com/dbohry/omarchy-gta6-workspaces)
+too, a bar widget that comes alive while this theme is active: the focused
+workspace sits in a Vice pink pill that slides between workspaces, the rest are
+colored sunset orange and dusk purple, and a sunset gradient line runs along
+the bar.
+
+![GTA 6 Workspaces: the pill sliding between workspaces](https://raw.githubusercontent.com/dbohry/omarchy-gta6-workspaces/main/screenshots/slide.png)
+
+```bash
+omarchy plugin add https://github.com/dbohry/omarchy-gta6-workspaces.git
+omarchy plugin enable gta6-workspaces --before omarchy.workspaces
+omarchy plugin disable omarchy.workspaces
+omarchy restart shell
+```
+
+See its [README](https://github.com/dbohry/omarchy-gta6-workspaces#readme) for
+tuning the slide and how to switch back to the stock workspaces widget.
+
 ## License
 
 The theme files (colors, config) are MIT. Artwork belongs to its owners.
