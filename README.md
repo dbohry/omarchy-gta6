@@ -27,6 +27,58 @@ Or, from within an existing checkout:
 omarchy theme set gta-vi
 ```
 
+## Full setup
+
+To get everything in the preview, install the theme and its three companion
+plugins, then restart the shell once at the end. Each plugin only comes alive
+while this theme is active, so switching to another theme gives you the stock
+look back without uninstalling anything.
+
+1. Install and apply the theme:
+
+   ```bash
+   omarchy theme install https://github.com/dbohry/omarchy-gta6.git
+   ```
+
+2. Swap in the [floating island bar](#bar):
+
+   ```bash
+   omarchy plugin add https://github.com/dbohry/omarchy-gta6-bar.git
+   omarchy bar use gta6-bar
+   ```
+
+3. Replace the workspace indicators with the [sliding Vice pink pill](#workspaces),
+   in the same spot on the bar:
+
+   ```bash
+   omarchy plugin add https://github.com/dbohry/omarchy-gta6-workspaces.git
+   omarchy plugin enable gta6-workspaces --before omarchy.workspaces
+   omarchy plugin disable omarchy.workspaces
+   ```
+
+4. Replace the [lock screen](#lock-screen):
+
+   ```bash
+   omarchy plugin add https://github.com/dbohry/omarchy-gta6-lock.git --enable
+   omarchy plugin disable omarchy.lock
+   ```
+
+5. Optional: install the Pricedown font for the lock screen's mission cards
+   (see the [GTA 6 Lock README](https://github.com/dbohry/omarchy-gta6-lock#font)).
+   Without it, the cards use the default font.
+
+6. Restart the shell so everything loads cleanly:
+
+   ```bash
+   omarchy restart shell
+   ```
+
+`omarchy plugin add` asks you to confirm each plugin before cloning it, since
+plugins run as code inside the shell. Answer no if it then offers to enable the
+bar or workspaces plugin; the commands after it take care of that.
+
+The sections below cover each plugin on its own.
+
 ## Lock screen
 
 Pair the theme with [GTA 6 Lock](https://github.com/dbohry/omarchy-gta6-lock),
