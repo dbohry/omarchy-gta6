@@ -67,7 +67,24 @@ look back without uninstalling anything.
    (see the [GTA 6 Lock README](https://github.com/dbohry/omarchy-gta6-lock#font)).
    Without it, the cards use the default font.
 
-6. Restart the shell so everything loads cleanly:
+6. Optional: round the window corners to 8px to match the bar islands. Omarchy
+   doesn't load Hyprland settings from a theme installed from git, so the theme
+   ships a hook that applies them instead, only while this theme is active:
+
+   ```bash
+   omarchy hook install theme-set ~/.config/omarchy/themes/gta6/hooks/window-rounding
+   omarchy theme set gta6
+   ```
+
+   Or, to round windows on every theme, add this to `~/.config/hypr/looknfeel.lua`:
+
+   ```lua
+   hl.config({
+     decoration = { rounding = 8 },
+   })
+   ```
+
+7. Restart the shell so everything loads cleanly:
 
    ```bash
    omarchy restart shell

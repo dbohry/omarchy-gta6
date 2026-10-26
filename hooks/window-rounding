@@ -1,0 +1,26 @@
+#!/bin/bash
+# Install with: omarchy hook install theme-set <path to this file>
+set -euo pipefail
+
+# A theme can ship hyprland-rounding holding one number of pixels (e.g. 8) for
+# window corners. Omarchy regenerates the theme's hyprland.lua on every theme
+# change, so the hook appends the rounding there and reloads Hyprland; themes
+# that ship no rounding keep Omarchy's square corners.
+theme_dir=${WINDOW_ROUNDING_OMARCHY_THEME_DIR:-$HOME/.local/state/omarchy/current/theme}
+rounding_file=$theme_dir/hyprland-rounding
+hyprland_lua=$theme_dir/hyprland.lua
+
+rounding=$(tr -d '[:space:]' 2>/dev/null < "$rounding_file" || true)
+[[ $rounding =~ ^[0-9]{1,2}$ ]] || exit 0
+
+cat >> "$hyprland_lua" <<LUA
+
+-- Added by the window-rounding theme-set hook from the theme's hyprland-rounding.
+hl.config({
+  decoration = {
+    rounding = $rounding,
+  },
+})
+LUA
+
+hyprctl reload >/dev/null
