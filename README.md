@@ -29,7 +29,7 @@ omarchy theme set gta-vi
 
 ## Full setup
 
-To get everything in the preview, install the theme and its three companion
+To get everything in the preview, install the theme and its four companion
 plugins, then restart the shell once at the end. Each plugin only comes alive
 while this theme is active, so switching to another theme gives you the stock
 look back without uninstalling anything.
@@ -47,7 +47,7 @@ look back without uninstalling anything.
    omarchy bar use gta6-bar
    ```
 
-3. Replace the workspace indicators with the [sliding Vice pink pill](#workspaces),
+3. Replace the workspace numbers with the [sliding Vice pink pill](#workspaces),
    in the same spot on the bar:
 
    ```bash
@@ -56,18 +56,27 @@ look back without uninstalling anything.
    omarchy plugin disable omarchy.workspaces
    ```
 
-4. Replace the [lock screen](#lock-screen):
+4. Replace the center indicators with ones that [slide open](#indicators) on
+   hover, like the tray:
+
+   ```bash
+   omarchy plugin add https://github.com/dbohry/omarchy-gta6-indicators.git
+   omarchy plugin enable gta6-indicators --before omarchy.indicators
+   omarchy plugin disable omarchy.indicators
+   ```
+
+5. Replace the [lock screen](#lock-screen):
 
    ```bash
    omarchy plugin add https://github.com/dbohry/omarchy-gta6-lock.git --enable
    omarchy plugin disable omarchy.lock
    ```
 
-5. Optional: install the Pricedown font for the lock screen's mission cards
+6. Optional: install the Pricedown font for the lock screen's mission cards
    (see the [GTA 6 Lock README](https://github.com/dbohry/omarchy-gta6-lock#font)).
    Without it, the cards use the default font.
 
-6. Optional: round the window corners to 8px to match the bar islands. Omarchy
+7. Optional: round the window corners to 8px to match the bar islands. Omarchy
    doesn't load Hyprland settings from a theme installed from git, so the theme
    ships a hook that applies them instead, only while this theme is active:
 
@@ -84,7 +93,7 @@ look back without uninstalling anything.
    })
    ```
 
-7. Restart the shell so everything loads cleanly:
+8. Restart the shell so everything loads cleanly:
 
    ```bash
    omarchy restart shell
@@ -92,7 +101,7 @@ look back without uninstalling anything.
 
 `omarchy plugin add` asks you to confirm each plugin before cloning it, since
 plugins run as code inside the shell. Answer no if it then offers to enable the
-bar or workspaces plugin; the commands after it take care of that.
+bar, workspaces or indicators plugin; the commands after it take care of that.
 
 The sections below cover each plugin on its own.
 
@@ -151,6 +160,25 @@ omarchy restart shell
 
 See its [README](https://github.com/dbohry/omarchy-gta6-workspaces#readme) for
 tuning the slide and how to switch back to the stock workspaces widget.
+
+## Indicators
+
+Round out the bar with [GTA 6 Indicators](https://github.com/dbohry/omarchy-gta6-indicators),
+a bar widget that comes alive while this theme is active: hovering the center of
+the bar slides the inactive indicators open from the right, the same way the
+tray's hidden apps slide out, and the center island grows along with them.
+
+![GTA 6 Indicators: the indicators sliding open](https://raw.githubusercontent.com/dbohry/omarchy-gta6-indicators/main/screenshots/sliding.png)
+
+```bash
+omarchy plugin add https://github.com/dbohry/omarchy-gta6-indicators.git
+omarchy plugin enable gta6-indicators --before omarchy.indicators
+omarchy plugin disable omarchy.indicators
+omarchy restart shell
+```
+
+See its [README](https://github.com/dbohry/omarchy-gta6-indicators#readme) for
+how to switch back to the stock indicators.
 
 ## License
 
